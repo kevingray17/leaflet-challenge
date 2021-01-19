@@ -5,6 +5,7 @@ var queryURL = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_mo
 d3.json(queryURL, function(data) {
     // Once we get a response, send the data.features object to the CreateFeatures function
     createFeatures(data.features);
+    console.log(data.features)
 });
 // Define the function we want to run once for each feature in the features array
 // Give each feature a pop up describing the magnitude and depth of the earthquakes
@@ -12,4 +13,6 @@ d3.json(queryURL, function(data) {
 function onEachFeature(feature, layer) {
     layer.bindPopup("<h3>" + feature.properties.place +
       "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
-      
+}
+
+
