@@ -43,6 +43,36 @@ function markerColor(depth) {
   return color;
 }
 
-// pull the geoJSON data
+// make geojson connection and grab the data for a month
 
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+
+d3.json(url, (response) => {
+  var earthquakes = response.features;
+
+// loop through and create a marker for each earthquakes
+earthquakes.forEach((earthquake) => {
+  var longitude = earthquake.geometry.coordinates[0];
+  var latitude = earthquake.geometry.coordinates[1];
+  var depth = earthquake.geometry.coordinates[2];
+  var magnitude = earthquake.properties.mag;
+  var marker = L.circle([latitude, longitude], {
+    fillOpacity: 0.50,
+    color: "black",
+    weight: 1,
+    fillColor: depthColor(depth),
+    radius: markerSize(magnitude),
+  })
+  .bindPopup(
+    "<h2>" +
+      earthquake.properties.place +
+      "</h2><h3>Magnitude: " +
+      magnitude +
+      "<h3>Depth: " +
+      depth
+  )
+  .addTo(myMap);
+
+});
+
+
