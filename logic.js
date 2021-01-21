@@ -45,4 +45,4 @@ function markerColor(depth) {
 
 // pull the geoJSON data
 
-var url = 
+var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
