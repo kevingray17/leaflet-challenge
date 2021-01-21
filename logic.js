@@ -56,23 +56,25 @@ earthquakes.forEach((earthquake) => {
   var latitude = earthquake.geometry.coordinates[1];
   var depth = earthquake.geometry.coordinates[2];
   var magnitude = earthquake.properties.mag;
+  
+  
   var marker = L.circle([latitude, longitude], {
-    fillOpacity: 0.50,
+    fillOpacity: 0.75,
     color: "black",
     weight: 1,
     fillColor: depthColor(depth),
     radius: markerSize(magnitude),
   })
-  .bindPopup(
-    "<h2>" +
-      earthquake.properties.place +
-      "</h2><h3>Magnitude: " +
-      magnitude +
-      "<h3>Depth: " +
-      depth
-  )
-  .addTo(myMap);
-
+    .bindPopup(
+      "<h2>" +
+        earthquake.properties.place +
+        "</h2><h3>Magnitude: " +
+        magnitude +
+        "<h3>Depth: " +
+        depth
+    )
+    .addTo(myMap);
 });
+
 
 
