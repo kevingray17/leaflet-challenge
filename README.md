@@ -5,4 +5,4 @@
 Uti
 
 
-![Image of Yaktocat](https://octodex.github.com/images/yaktocat.png)
+![Image of Quakes](https://github.com/kevingray17/leaflet-challenge/blob/main/Earthquake_Map.JPG?raw=true)
