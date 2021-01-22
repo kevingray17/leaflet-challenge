@@ -90,12 +90,13 @@ legend = L.control({position: "bottomright"});
 legend.onAdd = function() {
   let div = L.DomUtil.create("div", "info legend");
 
-  let legendInfo = "<div style='background-color: white;'> <h1>Quake Depths</h1> <h2>Yellow 0-10</h2> <h2>Green 11-50 </h2> <h2>Orange 51-100</h2> <h2>Red >100</h2> </div>" 
+  let legendInfo = "<div style='background-color: white;'> <h1>Quake Depths</h1> <h2>Yellow 0-10</h2> <h2>Green 11-50 </h2> <h2>Orange 51-100</h2> <h2>Red > 100</h2> </div>" 
 
 
   div.innerHTML = legendInfo;
 
   return div;
+
   };
 
   legend.addTo(myMap);
