@@ -1,6 +1,6 @@
 // set up map variables
 
-var mapCenter = [31.51073, -96.4247];
+var mapCenter = [49.895077, -97.138451];
 var mapZoom = 4;
 
 // createMap
