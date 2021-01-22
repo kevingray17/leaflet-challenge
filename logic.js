@@ -39,13 +39,15 @@ function markerColor(depth) {
   else if (depth < 50) color = "ffff00";
   else if (depth < 70) color = "ff8000";
   else if (depth < 90) color = "ff0000";
-  else color = "990000";
+  else color = "8b0000";
   return color;
 }
 
 // make geojson connection and grab the data for a month
 
-var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+// var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
+var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
+
 
 d3.json(url, (response) => {
   var earthquakes = response.features;
