@@ -1,7 +1,7 @@
 // set up map variables
 
 var mapCenter = [31.51073, -96.4247];
-var mapZoom = 6;
+var mapZoom = 3;
 
 // createMap
 
@@ -18,7 +18,7 @@ L.tileLayer(
     attribution:
       "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
     tileSize: 512,
-    maxZoom: 18,
+    mapZoom: 8,
     zoomOffset: -1,
     id: "mapbox/streets-v11",
     accessToken: API_KEY,
@@ -62,7 +62,7 @@ earthquakes.forEach((earthquake) => {
     fillOpacity: 0.75,
     color: "black",
     weight: 1,
-    fillColor: depthColor(depth),
+    fillColor: markerColor(depth),
     radius: markerSize(magnitude),
   })
     .bindPopup(
