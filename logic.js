@@ -34,18 +34,24 @@ function markerSize(magnitude) {
 // establish colors based on earthquake depths
 
 function markerColor(depth) {
-  if (depth < 10) color = "#ccffe5";
-  else if (depth < 30) color = "b2ff66";
-  else if (depth < 50) color = "ffff00";
-  else if (depth < 70) color = "ff8000";
-  else if (depth < 90) color = "ff0000";
-  else color = "8b0000";
-  return color;
+  if (depth <= 10) {
+    return "#FFFF00"
+}
+else if (depth < 50) {
+    return "#008000"
+}
+else if (depth < 100) {
+  return "#ff8c00"
+}
+else  {
+    return "#FF0000"
+}
+  
+  
 }
 
 // make geojson connection and grab the data for a month
 
-// var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_month.geojson"
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
 
@@ -79,24 +85,17 @@ earthquakes.forEach((earthquake) => {
 });
 
 //create a legend and place it on the bottom right of the map
+//adding legend to map
+legend = L.control({position: "bottomright"});
+legend.onAdd = function() {
+  let div = L.DomUtil.create("div", "info legend");
 
-var legend = L.control({ position: "bottomright" });
-  legend.onAdd = function (myMap) {
-    var div = L.DomUtil.create("div", "info legend");
-    div.innerHTML += "<h4>Earthquake Depth</h4>";
-    div.innerHTML +=
-      '<i style="background: #"ccffe5"></i><span> -10 to 10</span><br>';
-    div.innerHTML +=
-      '<i style="background: #b2ff66"></i><span>10 to 30</span><br>';
-    div.innerHTML +=
-      '<i style="background: #ffff00"></i><span>30 to 50</span><br>';
-    div.innerHTML +=
-      '<i style="background: #ff8000"></i><span>50 to 70</span><br>';
-    div.innerHTML +=
-      '<i style="background: #ff0000"></i><span>70 to 90</span><br>';
-    div.innerHTML += '<i style="background: #990000"></i><span>90 +</span><br>';
+  let legendInfo = "<div style='background-color: white;'> <h1>Quake Depths</h1> <h2>Yellow 0-10</h2> <h2>Green 11-50 </h2> <h2>Orange 51-100</h2> <h2>Red >100</h2> </div>" 
 
-    return div;
+
+  div.innerHTML = legendInfo;
+
+  return div;
   };
 
   legend.addTo(myMap);
