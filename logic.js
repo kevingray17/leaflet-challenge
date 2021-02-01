@@ -53,16 +53,21 @@ else  {
 
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson"
 
-
 d3.json(url, (response) => {
   var earthquakes = response.features;
 
+
 // loop through and create a marker for each earthquakes
 earthquakes.forEach((earthquake) => {
+
+  var time = earthquake.properties.time;
   var longitude = earthquake.geometry.coordinates[0];
   var latitude = earthquake.geometry.coordinates[1];
   var depth = earthquake.geometry.coordinates[2];
   var magnitude = earthquake.properties.mag;
+
+  var timestamp = Number(new Date()) 
+  var date = new Date(timestamp)//.toDateString() 
   
   
   var marker = L.circle([latitude, longitude], {
@@ -78,7 +83,9 @@ earthquakes.forEach((earthquake) => {
         "</h2><h3>Magnitude: " +
         magnitude +
         "<h3>Depth: " +
-        depth
+        depth +
+        "<h3>Date & Time: " +
+        date
     )
     .addTo(myMap);
 });
