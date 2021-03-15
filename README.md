@@ -1,5 +1,5 @@
-# What's Shaking? 
-## A weekly accounting of worldwide seismic activity
+# What's Shakin'? 
+## A daily accounting of worldwide seismic activity
 
 ### About This Project
 The Earth is alive!
